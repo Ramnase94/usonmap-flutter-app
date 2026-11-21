@@ -1,278 +1,558 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#6d28d9">
-  <meta name="description" content="UsOnMap - A private couple connection app. Stay connected with private chat, anniversary countdown and consent-based live location sharing.">
-  <title>UsOnMap  Stay Connected, Always</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7915c9">
+<meta name="description" content="UsOnMap - Stay Connected, Always Together. A private couple connection app.">
+<title>UsOnMap | Stay Connected, Always Together</title>
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+:root {
+  --pink:#ff2389;
+  --purple:#7415db;
+  --deep:#30075f;
+  --light:#fff4ff;
+  --text:#291044;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      color: #25163d;
-      background: #fffaff;
-      line-height: 1.6;
-    }
+* { box-sizing:border-box; margin:0; padding:0; }
 
-    header {
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-    }
+html { scroll-behavior:smooth; }
 
-    .logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #7c3aed;
-    }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#fff5ff,#f5e4ff,#fff4fc);
+  overflow-x:hidden;
+}
 
-    nav a {
-      color: #49345e;
-      text-decoration: none;
-      margin-left: 22px;
-      font-weight: 600;
-    }
+a { text-decoration:none; }
 
-    .hero {
-      padding: 95px 8%;
-      text-align: center;
-      color: white;
-      background: linear-gradient(135deg, #ec4899, #9333ea, #5b21b6);
-    }
+.navbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:17px 7%;
+  background:#ffffffd9;
+  backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 20px #7515aa12;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 7vw, 68px);
-      line-height: 1.15;
-      margin-bottom: 22px;
-    }
+.brand {
+  font-size:27px;
+  font-weight:900;
+  color:var(--purple);
+  letter-spacing:-1px;
+}
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 18px;
-      opacity: .95;
-    }
+.brand span { color:var(--pink); }
 
-    .download {
-      display: inline-block;
-      margin-top: 32px;
-      padding: 16px 32px;
-      border-radius: 40px;
-      background: white;
-      color: #7c3aed;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 8px 25px #3b076455;
-    }
+.navlinks {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .version {
-      margin-top: 15px;
-      font-size: 13px;
-      opacity: .9;
-    }
+.navlinks a {
+  color:var(--deep);
+  font-weight:700;
+  padding:10px 17px;
+  border-radius:30px;
+  transition:.3s;
+}
 
-    section {
-      padding: 70px 8%;
-      text-align: center;
-    }
+.navlinks a:hover {
+  background:#f5d9ff;
+  color:var(--pink);
+}
 
-    h2 {
-      font-size: 34px;
-      color: #7028c8;
-      margin-bottom: 15px;
-    }
+.nav-download {
+  background:linear-gradient(110deg,var(--pink),var(--purple));
+  color:white!important;
+}
 
-    .intro {
-      max-width: 700px;
-      margin: 0 auto 35px;
-      color: #665875;
-    }
+.hero {
+  min-height:560px;
+  padding:85px 8%;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:30px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 20%,#ffb5e6 0,transparent 35%),
+    linear-gradient(125deg,#ffe3f5,#f0d7ff 55%,#d9b8ff);
+}
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.hero:before {
+  content:"";
+  position:absolute;
+  width:430px;
+  height:430px;
+  border-radius:50%;
+  background:#ffffff55;
+  right:-130px;
+  bottom:-220px;
+}
 
-    .feature {
-      padding: 28px 20px;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 5px 25px #6b21a50d;
-      border: 1px solid #f0e4fa;
-    }
+.hero-content { position:relative; z-index:2; }
 
-    .feature .emoji {
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
+.eyebrow {
+  display:inline-block;
+  padding:9px 17px;
+  border-radius:30px;
+  background:#ffffffb8;
+  color:#8b21bf;
+  font-weight:800;
+  font-size:13px;
+  margin-bottom:22px;
+  box-shadow:0 5px 20px #8b21bf12;
+}
 
-    .feature h3 { margin-bottom: 8px; }
+.hero h1 {
+  font-size:clamp(43px,6vw,72px);
+  line-height:1.08;
+  font-weight:900;
+  letter-spacing:-2px;
+  color:#451078;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 18px;
-      max-width: 1000px;
-      margin: 35px auto 0;
-    }
+.hero h1 span {
+  background:linear-gradient(90deg,#ff1684,#8512db);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid #eadcf5;
-      box-shadow: 0 8px 22px #4c1d9515;
-    }
+.tagline {
+  font-size:clamp(25px,3vw,38px);
+  font-weight:800;
+  color:#8d25b9;
+  margin:18px 0;
+}
 
-    .privacy {
-      background: #f8efff;
-    }
+.hero-description {
+  max-width:520px;
+  font-size:17px;
+  line-height:1.8;
+  color:#573b70;
+}
 
-    .cta {
-      background: linear-gradient(135deg, #7c3aed, #db2777);
-      color: white;
-    }
+.primary-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:17px 27px;
+  margin-top:28px;
+  border-radius:50px;
+  background:linear-gradient(110deg,#ff1684,#8512df);
+  color:white;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 10px 30px #9c20c74a;
+  transition:.3s;
+}
 
-    .cta h2 { color: white; }
-    .cta p { margin-top: 10px; }
+.primary-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px #9c20c766;
+}
 
-    footer {
-      padding: 28px 15px;
-      text-align: center;
-      background: #241333;
-      color: #eadcf5;
-      font-size: 14px;
-    }
+.version {
+  margin-top:13px;
+  font-size:13px;
+  color:#704b85;
+  font-weight:700;
+}
 
-    footer strong { color: #f0abfc; }
+.hero-art {
+  position:relative;
+  min-height:350px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    @media(max-width: 600px) {
-      header { padding: 17px 5%; }
-      nav a { margin-left: 10px; font-size: 13px; }
-      .logo { font-size: 21px; }
-      .hero { padding: 75px 6%; }
-      section { padding: 55px 6%; }
-      h2 { font-size: 29px; }
-    }
-  </style>
+.heart-circle {
+  width:min(320px,75vw);
+  height:min(320px,75vw);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#ffffffc9,#f5c9ff99);
+  border:2px solid #ffffffb8;
+  box-shadow:0 25px 70px #8b26c833,inset 0 0 35px #ffffff;
+  animation:float 5s ease-in-out infinite;
+}
+
+.heart-circle span {
+  font-size:150px;
+  filter:drop-shadow(0 12px 15px #d22a8c44);
+}
+
+.float-card {
+  position:absolute;
+  padding:13px 18px;
+  border-radius:18px;
+  background:#ffffffdc;
+  box-shadow:0 10px 35px #7222a522;
+  font-weight:800;
+  color:#7415bb;
+  animation:float 4s ease-in-out infinite;
+}
+
+.float-one { top:20px; right:0; }
+.float-two { bottom:30px; left:0; animation-delay:1s; }
+
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-13px); }
+}
+
+section { padding:75px 7%; }
+
+.section-heading {
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-heading h2 {
+  font-size:clamp(29px,4vw,40px);
+  color:#6716b4;
+  font-weight:900;
+}
+
+.section-heading p {
+  margin-top:10px;
+  color:#735987;
+  font-size:16px;
+}
+
+.features {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+  max-width:1150px;
+  margin:auto;
+}
+
+.feature-card {
+  text-align:center;
+  padding:30px 19px;
+  border:1px solid #ffffff;
+  border-radius:25px;
+  background:#ffffffb9;
+  box-shadow:0 10px 30px #7916aa12;
+  transition:.3s;
+}
+
+.feature-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 17px 35px #7916aa24;
+}
+
+.feature-icon {
+  width:68px;
+  height:68px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 17px;
+  font-size:31px;
+  color:white;
+  background:linear-gradient(140deg,#ff2893,#7916e1);
+  box-shadow:0 8px 18px #9219c633;
+}
+
+.feature-card h3 {
+  font-size:18px;
+  margin-bottom:10px;
+  color:#451078;
+}
+
+.feature-card p {
+  font-size:14px;
+  color:#755d87;
+  line-height:1.6;
+}
+
+.gallery-section {
+  background:linear-gradient(180deg,#f8eaff,#fff5fc);
+}
+
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+  gap:22px;
+  max-width:1120px;
+  margin:auto;
+}
+
+.gallery-item {
+  padding:8px;
+  background:white;
+  border-radius:24px;
+  box-shadow:0 12px 30px #6f1ca526;
+  transition:.3s;
+}
+
+.gallery-item:hover { transform:translateY(-7px); }
+
+.gallery-item img {
+  width:100%;
+  display:block;
+  border-radius:17px;
+  object-fit:contain;
+}
+
+.privacy-box {
+  max-width:1050px;
+  margin:auto;
+  padding:35px;
+  display:flex;
+  align-items:center;
+  gap:25px;
+  border-radius:28px;
+  background:linear-gradient(110deg,#f6dfff,#ffe8f5);
+  border:1px solid white;
+  box-shadow:0 12px 35px #8116aa12;
+}
+
+.privacy-icon {
+  font-size:55px;
+  flex-shrink:0;
+}
+
+.privacy-box h2 {
+  color:#7018ba;
+  margin-bottom:9px;
+}
+
+.privacy-box p {
+  color:#634c78;
+  line-height:1.7;
+}
+
+.cta {
+  padding:65px 7%;
+  text-align:center;
+  color:white;
+  background:linear-gradient(115deg,#d81b91,#8a18d8,#5210a6);
+}
+
+.cta h2 {
+  font-size:clamp(30px,4vw,43px);
+  font-weight:900;
+}
+
+.cta p {
+  margin-top:12px;
+  color:#fce8ff;
+}
+
+.cta .primary-btn {
+  background:white;
+  color:#7517bd;
+}
+
+footer {
+  padding:32px 7%;
+  text-align:center;
+  color:#f8eaff;
+  background:#290b48;
+}
+
+.footer-brand {
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+footer p { margin-top:7px; font-size:14px; }
+footer strong { color:#ff75c1; }
+
+.footer-links {
+  margin:15px 0;
+}
+
+.footer-links a {
+  color:#f5d8ff;
+  margin:0 10px;
+  font-size:13px;
+}
+
+@media(max-width:760px) {
+  .navbar { padding:14px 5%; }
+  .brand { font-size:22px; }
+  .navlinks { gap:2px; }
+  .navlinks a { font-size:12px; padding:8px 9px; }
+  .hero {
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:65px 6% 55px;
+  }
+  .hero-description { margin:auto; }
+  .hero-art { min-height:290px; }
+  .heart-circle { width:245px; height:245px; }
+  .heart-circle span { font-size:115px; }
+  .float-one { right:0; }
+  .float-two { left:0; }
+  section { padding:58px 5%; }
+  .privacy-box { flex-direction:column; text-align:center; padding:28px 22px; }
+}
+
+@media(max-width:420px) {
+  .navlinks a { font-size:11px; padding:7px; }
+  .brand { font-size:19px; }
+  .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px; }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo"> UsOnMap</div>
-  <nav>
+<header class="navbar">
+  <a href="#" class="brand">&#10084; UsOn<span>Map</span></a>
+  <nav class="navlinks">
     <a href="#features">Features</a>
     <a href="#screenshots">Screenshots</a>
-    <a href="#download">Download</a>
+    <a href="#download" class="nav-download">Download</a>
   </nav>
 </header>
 
 <main>
-  <div class="hero">
-    <h1>Stay Connected,<br>Always Together </h1>
-    <p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">&#10084; MADE FOR TWO, CONNECTED FOREVER</div>
+    <h1>UsOn<span>Map</span></h1>
+    <div class="tagline">Stay Connected,<br>Always Together &#10084;</div>
+    <p class="hero-description">
       Your private space to connect, share moments,
       chat and stay close to the one you love.
     </p>
-    <a class="download"
+    <a class="primary-btn"
        href="https://github.com/Ramnase94/usonmap-flutter-app/releases/download/v1.0.0/app-release.apk">
-        Download for Android
+       &#8595; Download for Android &#8594;
     </a>
-    <div class="version">Latest Version: 1.0.0  Android</div>
+    <div class="version">Latest Version: 1.0.0 &nbsp; | &nbsp; Android</div>
   </div>
 
-  <section id="features">
-    <h2>Made for Two </h2>
-    <p class="intro">
-      Everything you need to stay connected with your special person.
-    </p>
+  <div class="hero-art">
+    <div class="heart-circle"><span>&#128149;</span></div>
+    <div class="float-card float-one">&#128205; Stay Connected</div>
+    <div class="float-card float-two">&#128150; Together Always</div>
+  </div>
+</section>
 
-    <div class="features">
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>Secure Login</h3>
-        <p>Private couple account access.</p>
-      </div>
+<section id="features">
+  <div class="section-heading">
+    <h2>&#10084; Made for Two &#10084;</h2>
+    <p>Everything you need to stay connected with your special person.</p>
+  </div>
 
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>Private Chat</h3>
-        <p>Share messages with your partner.</p>
-      </div>
+  <div class="features">
+    <article class="feature-card">
+      <div class="feature-icon">&#128274;</div>
+      <h3>Secure Login</h3>
+      <p>Private couple account access.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">&#128172;</div>
+      <h3>Private Chat</h3>
+      <p>Share messages with your partner.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">&#128205;</div>
+      <h3>Live Location</h3>
+      <p>Consent-based location sharing.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">&#128506;</div>
+      <h3>OpenStreetMap</h3>
+      <p>View shared locations on a map.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">&#128101;</div>
+      <h3>Couple Connection</h3>
+      <p>Connect through couple invitations.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">&#128197;</div>
+      <h3>Anniversary Countdown</h3>
+      <p>Celebrate your special moments.</p>
+    </article>
+  </div>
+</section>
 
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>Live Location</h3>
-        <p>Consent-based location sharing.</p>
-      </div>
+<section id="screenshots" class="gallery-section">
+  <div class="section-heading">
+    <h2>&#128247; App Screenshots</h2>
+    <p>Explore the UsOnMap experience.</p>
+  </div>
 
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>OpenStreetMap</h3>
-        <p>View shared locations on a map.</p>
-      </div>
-
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>Couple Connection</h3>
-        <p>Connect through couple invitations.</p>
-      </div>
-
-      <div class="feature">
-        <div class="emoji"></div>
-        <h3>Anniversary Countdown</h3>
-        <p>Celebrate your special moments.</p>
-      </div>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="screenshots/1..jpeg" alt="UsOnMap screenshot 1" loading="lazy">
     </div>
-  </section>
-
-  <section id="screenshots">
-    <h2>App Screenshots</h2>
-    <p class="intro">Explore the UsOnMap experience.</p>
-
-    <div class="gallery">
-      <img src="screenshots/1..jpeg" alt="UsOnMap app screenshot 1">
-      <img src="screenshots/2..jpeg" alt="UsOnMap app screenshot 2">
-      <img src="screenshots/3..jpeg" alt="UsOnMap app screenshot 3">
-      <img src="screenshots/4..jpeg" alt="UsOnMap app screenshot 4">
-      <img src="screenshots/5..jpeg" alt="UsOnMap app screenshot 5">
+    <div class="gallery-item">
+      <img src="screenshots/2..jpeg" alt="UsOnMap screenshot 2" loading="lazy">
     </div>
-  </section>
+    <div class="gallery-item">
+      <img src="screenshots/3..jpeg" alt="UsOnMap screenshot 3" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="screenshots/4..jpeg" alt="UsOnMap screenshot 4" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="screenshots/5..jpeg" alt="UsOnMap screenshot 5" loading="lazy">
+    </div>
+  </div>
+</section>
 
-  <section class="privacy">
-    <h2>Your Privacy Matters</h2>
-    <p class="intro">
-      Location sharing is designed to be consent-based.
-      Share your location only when you choose to.
-      Use the app responsibly and protect your account credentials.
-    </p>
-  </section>
+<section>
+  <div class="privacy-box">
+    <div class="privacy-icon">&#128274;</div>
+    <div>
+      <h2>Your Privacy Matters</h2>
+      <p>
+        Location sharing is designed to be consent-based.
+        Share your location only when you choose to.
+        Use the app responsibly and protect your account credentials.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <section class="cta" id="download">
-    <h2>Start Your UsOnMap Journey</h2>
-    <p>Stay closer, wherever life takes you.</p>
-    <a class="download"
-       href="https://github.com/Ramnase94/usonmap-flutter-app/releases/download/v1.0.0/app-release.apk">
-       Download UsOnMap v1.0.0
-    </a>
-  </section>
+<section class="cta" id="download">
+  <h2>Start Your UsOnMap Journey</h2>
+  <p>Stay closer, wherever life takes you.</p>
+  <a class="primary-btn"
+     href="https://github.com/Ramnase94/usonmap-flutter-app/releases/download/v1.0.0/app-release.apk">
+     &#8595; Download UsOnMap v1.0.0 &#8594;
+  </a>
+</section>
 </main>
 
 <footer>
-  <p> UsOnMap</p>
+  <div class="footer-brand">&#10084; UsOnMap</div>
+  <p>Stay Connected, Always Together.</p>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#download">Download</a>
+  </div>
   <p>Powered by <strong>Rtechnologies</strong></p>
-  <p> 2026 UsOnMap. All rights reserved.</p>
+  <p>&copy; 2026 UsOnMap. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
-
