@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6d28d9">
+  <meta name="description" content="UsOnMap - A private couple connection app. Stay connected with private chat, anniversary countdown and consent-based live location sharing.">
+  <title>UsOnMap – Stay Connected, Always</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #25163d;
+      background: #fffaff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #7c3aed;
+    }
+
+    nav a {
+      color: #49345e;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 95px 8%;
+      text-align: center;
+      color: white;
+      background: linear-gradient(135deg, #ec4899, #9333ea, #5b21b6);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+      opacity: .95;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 16px 32px;
+      border-radius: 40px;
+      background: white;
+      color: #7c3aed;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 25px #3b076455;
+    }
+
+    .version {
+      margin-top: 15px;
+      font-size: 13px;
+      opacity: .9;
+    }
+
+    section {
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 34px;
+      color: #7028c8;
+      margin-bottom: 15px;
+    }
+
+    .intro {
+      max-width: 700px;
+      margin: 0 auto 35px;
+      color: #665875;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature {
+      padding: 28px 20px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 5px 25px #6b21a50d;
+      border: 1px solid #f0e4fa;
+    }
+
+    .feature .emoji {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 { margin-bottom: 8px; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      max-width: 1000px;
+      margin: 35px auto 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid #eadcf5;
+      box-shadow: 0 8px 22px #4c1d9515;
+    }
+
+    .privacy {
+      background: #f8efff;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #7c3aed, #db2777);
+      color: white;
+    }
+
+    .cta h2 { color: white; }
+    .cta p { margin-top: 10px; }
+
+    footer {
+      padding: 28px 15px;
+      text-align: center;
+      background: #241333;
+      color: #eadcf5;
+      font-size: 14px;
+    }
+
+    footer strong { color: #f0abfc; }
+
+    @media(max-width: 600px) {
+      header { padding: 17px 5%; }
+      nav a { margin-left: 10px; font-size: 13px; }
+      .logo { font-size: 21px; }
+      .hero { padding: 75px 6%; }
+      section { padding: 55px 6%; }
+      h2 { font-size: 29px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">❤️ UsOnMap</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#download">Download</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Stay Connected,<br>Always Together ❤️</h1>
+    <p>
+      Your private space to connect, share moments,
+      chat and stay close to the one you love.
+    </p>
+    <a class="download"
+       href="https://github.com/Ramnase94/usonmap-flutter-app/releases/download/v1.0.0/app-release.apk">
+       ↓ Download for Android
+    </a>
+    <div class="version">Latest Version: 1.0.0 · Android</div>
+  </div>
+
+  <section id="features">
+    <h2>Made for Two ❤️</h2>
+    <p class="intro">
+      Everything you need to stay connected with your special person.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="emoji">🔐</div>
+        <h3>Secure Login</h3>
+        <p>Private couple account access.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">💬</div>
+        <h3>Private Chat</h3>
+        <p>Share messages with your partner.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">📍</div>
+        <h3>Live Location</h3>
+        <p>Consent-based location sharing.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🗺️</div>
+        <h3>OpenStreetMap</h3>
+        <p>View shared locations on a map.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">💞</div>
+        <h3>Couple Connection</h3>
+        <p>Connect through couple invitations.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🎂</div>
+        <h3>Anniversary Countdown</h3>
+        <p>Celebrate your special moments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots">
+    <h2>App Screenshots</h2>
+    <p class="intro">Explore the UsOnMap experience.</p>
+
+    <div class="gallery">
+      <img src="../screenshots/1..jpeg" alt="UsOnMap app screenshot 1">
+      <img src="../screenshots/2..jpeg" alt="UsOnMap app screenshot 2">
+      <img src="../screenshots/3..jpeg" alt="UsOnMap app screenshot 3">
+      <img src="../screenshots/4..jpeg" alt="UsOnMap app screenshot 4">
+      <img src="../screenshots/5..jpeg" alt="UsOnMap app screenshot 5">
+    </div>
+  </section>
+
+  <section class="privacy">
+    <h2>Your Privacy Matters</h2>
+    <p class="intro">
+      Location sharing is designed to be consent-based.
+      Share your location only when you choose to.
+      Use the app responsibly and protect your account credentials.
+    </p>
+  </section>
+
+  <section class="cta" id="download">
+    <h2>Start Your UsOnMap Journey</h2>
+    <p>Stay closer, wherever life takes you.</p>
+    <a class="download"
+       href="https://github.com/Ramnase94/usonmap-flutter-app/releases/download/v1.0.0/app-release.apk">
+       Download UsOnMap v1.0.0
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>❤️ UsOnMap</p>
+  <p>Powered by <strong>Rtechnologies</strong></p>
+  <p>© 2026 UsOnMap. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
